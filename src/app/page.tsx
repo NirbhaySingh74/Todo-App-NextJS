@@ -15,6 +15,16 @@ export default function Home() {
     const newTodos = todos.filter((_, i) => i !== index);
     setTodos(newTodos);
   };
+
+  const updateTodo = (index: number) => {
+    const updatedText = prompt("Update your todo:", todos[index]);
+    if (updatedText !== null && updatedText.trim() !== "") {
+      const newTodos = [...todos];
+      newTodos[index] = updatedText;
+      setTodos(newTodos);
+    }
+  };
+
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
       <div className="flex flex-col items-center gap-6 bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
@@ -23,7 +33,11 @@ export default function Home() {
         <TodoInput addTodo={addTodo} />
 
         {todos.length > 0 ? (
-          <TodoList todos={todos} deleteTodo={deleteTodo} />
+          <TodoList
+            todos={todos}
+            deleteTodo={deleteTodo}
+            updateTodo={updateTodo}
+          />
         ) : (
           <p className="text-gray-500">No todos yet. Add some above!</p>
         )}
