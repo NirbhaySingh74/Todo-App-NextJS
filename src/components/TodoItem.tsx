@@ -16,22 +16,22 @@ export default function TodoItem({
   updateTodo,
 }: TodoItemProps) {
   return (
-    <li className="relative bg-gray-100 p-4 mb-4 rounded-lg shadow-sm flex flex-col">
-      <div className="absolute right-2 top-2 flex space-x-2">
+    <li className="flex justify-between items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4 mb-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-white">
+      <span className="text-lg font-semibold">{todo}</span>
+      <div className="flex space-x-3">
         <button
-          className="text-blue-500 hover:text-blue-700 transition"
+          className="text-white hover:text-blue-200 transition-transform transform hover:scale-110"
           onClick={() => updateTodo(index)}
         >
           <MdEdit size={20} />
         </button>
         <button
           onClick={() => deleteTodo(index)}
-          className="text-red-500 hover:text-red-700 transition"
+          className="text-white hover:text-red-300 transition-transform transform hover:scale-110"
         >
           <MdDelete size={20} />
         </button>
       </div>
-      <span className="text-lg mt-6">{todo}</span>
     </li>
   );
 }
