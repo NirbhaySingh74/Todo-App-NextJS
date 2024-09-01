@@ -16,11 +16,9 @@ export default function TodoItem({
   updateTodo,
 }: TodoItemProps) {
   return (
-    <li className="flex flex-col sm:flex-row justify-between items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4 mb-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-white">
-      <span className="text-lg sm:text-base md:text-lg font-semibold mb-2 sm:mb-0">
-        {todo}
-      </span>
-      <div className="flex space-x-3 sm:space-x-3 md:space-x-4 sm:flex-row flex-col space-y-2 sm:space-y-0">
+    <li className="flex justify-between items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4 mb-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-white">
+      <span className="text-lg font-semibold">{todo}</span>
+      <div className="flex space-x-3">
         <button
           className="text-white hover:text-blue-200 transition-transform transform hover:scale-110"
           onClick={() => updateTodo(index)}
